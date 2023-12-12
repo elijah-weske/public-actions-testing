@@ -16,10 +16,12 @@ jobs:
   dev_check:
     environment: dev
     steps:
-      run: echo ${{ env.ACCOUNT_NUMBER }}
+      - run: echo ${{ env.ACCOUNT_NUMBER }}
+      - run: echo "should be 111111"
 
   prod_check:
     environment: prod
     steps:
-      run: echo ${{ env.ACCOUNT_NUMBER }}
+      - run: echo ${{ env.ACCOUNT_NUMBER }}
+      - run: echo "should be 222222"
 
