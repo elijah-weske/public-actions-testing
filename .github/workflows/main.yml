@@ -18,8 +18,15 @@ jobs:
     environment: dev
     steps:
       - run: echo "getting account number via env ${{ env.ACCOUNT_NUMBER }}"
+      - run: |
+          if [ "${{ env.ACCOUNT_NUMBER }}" = "111111" ]; then
+            echo "env.ACCOUNT_NUMBER is equal to 111111"
+          fi
       - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
-      - run: echo "should be 111111"
+      - run: |
+          if [ "${{ secrets.ACCOUNT_NUMBER }}" = "111111" ]; then
+            echo "secrets.ACCOUNT_NUMBER is equal to 111111"
+          fi
       - run: echo "getting random variable ${{ vars.VARIABLE }}"
       
 
@@ -28,8 +35,15 @@ jobs:
     environment: prod
     steps:
       - run: echo "getting account number via env ${{ env.ACCOUNT_NUMBER }}"
+      - run: |
+          if [ "${{ env.ACCOUNT_NUMBER }}" = "222222" ]; then
+            echo "env.ACCOUNT_NUMBER is equal to 222222"
+          fi
       - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
-      - run: echo "should be 222222"
+      - run: |
+          if [ "${{ secrets.ACCOUNT_NUMBER }}" = "222222" ]; then
+            echo "secrets.ACCOUNT_NUMBER is equal to 222222"
+          fi
       - run: echo "getting random variable ${{ vars.VARIABLE }}"
       
 
