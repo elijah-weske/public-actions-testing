@@ -20,7 +20,7 @@ jobs:
       - run: echo "getting account number via env ${{ env.ACCOUNT_NUMBER }}"
       - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
       - run: echo "should be 111111"
-      - run: echo "getting random variable ${{ vars.VARIABLE }}
+      - run: echo "getting random variable ${{ vars.VARIABLE }}"
       
 
   prod_check:
@@ -30,6 +30,6 @@ jobs:
       - run: echo "getting account number via env ${{ env.ACCOUNT_NUMBER }}"
       - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
       - run: echo "should be 222222"
-      - run: echo "getting random variable ${{ vars.VARIABLE }}
+      - run: echo "getting random variable ${{ vars.VARIABLE }}"
       
 
