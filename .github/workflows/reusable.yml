@@ -11,6 +11,9 @@ permissions:
   id-token: write   # This is required for requesting the JWT
   contents: read
 
+env:
+  ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
+
 jobs:
   build:
     name: CDK Build
@@ -27,4 +30,4 @@ jobs:
           if [ "${{ secrets.ACCOUNT_NUMBER }}" = "111111" ]; then
             echo "secrets.ACCOUNT_NUMBER is equal to 111111"
           fi
-      - run: echo environment name is ${{ inputs.environment }}
+      - run: echo "environment name is ${{ inputs.environment }}"
