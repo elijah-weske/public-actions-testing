@@ -1,0 +1,30 @@
+name: Test Reusable
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+          
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read
+
+jobs:
+  build:
+    name: CDK Build
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - run: echo "getting account number via env ${{ env.ACCOUNT_NUMBER }}"
+      - run: |
+          if [ "${{ env.ACCOUNT_NUMBER }}" = "111111" ]; then
+            echo "env.ACCOUNT_NUMBER is equal to 111111"
+          fi
+      - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
+      - run: |
+          if [ "${{ secrets.ACCOUNT_NUMBER }}" = "111111" ]; then
+            echo "secrets.ACCOUNT_NUMBER is equal to 111111"
+          fi
+      - run: echo environment name is ${{ inputs.environment }}
