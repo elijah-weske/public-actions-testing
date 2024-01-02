@@ -8,10 +8,6 @@ permissions:
   id-token: write   # This is required for requesting the JWT
   contents: read    # This is required for actions/checkout
 
-env:
-  ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
-  # Dev is 1111111, Prod is 2222222
-
 jobs:
   dev_check:
     uses: .github/workflows/reusable.yml@main
