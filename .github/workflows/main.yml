@@ -14,12 +14,14 @@ env:
 jobs:
   dev_check:
     uses: ./.github/workflows/reusable.yml
+    secrets: inherit
     with:
       environment: dev # must match environment namespace created in GitHub
       ACCOUNT_NUMBER: ${{ env.ACCOUNT_NUNBER }}
 
   prod_check:
     uses: ./.github/workflows/reusable.yml
+    secrets: inherit
     with:
       environment: prod # must match environment namespace created in GitHub
 
