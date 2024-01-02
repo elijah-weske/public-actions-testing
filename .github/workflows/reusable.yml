@@ -24,10 +24,12 @@ jobs:
       - run: |
           if [ "${{ env.ACCOUNT_NUMBER }}" = "111111" ]; then
             echo "env.ACCOUNT_NUMBER is equal to 111111"
+            echo "ACCOUNT_NUMBER is ${{ env.ACCOUNT_NUMBER }}"
           fi
       - run: echo "getting account number directly via secrets ${{ secrets.ACCOUNT_NUMBER }}"
       - run: |
           if [ "${{ secrets.ACCOUNT_NUMBER }}" = "111111" ]; then
             echo "secrets.ACCOUNT_NUMBER is equal to 111111"
+            echo "ACCOUNT_NUMBER is ${{ env.ACCOUNT_NUMBER }}"
           fi
       - run: echo "environment name is ${{ inputs.environment }}"
