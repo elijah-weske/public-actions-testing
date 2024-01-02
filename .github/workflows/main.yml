@@ -10,12 +10,12 @@ permissions:
 
 jobs:
   dev_check:
-    uses: .github/workflows/reusable.yml@main
+    uses: ./.github/workflows/reusable.yml
     with:
       environment: dev # must match environment namespace created in GitHub
 
   prod_check:
-    uses: .github/workflows/reusable.yml@main
+    uses: ./.github/workflows/reusable.yml
     with:
       environment: prod # must match environment namespace created in GitHub
 
